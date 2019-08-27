@@ -10,10 +10,16 @@ pool:
   vmImage: 'ubuntu-latest'
 
 steps:
-- script: echo Hello, world!
-  displayName: 'Run a one-line script'
+# - script: echo Hello, world!
+#   displayName: 'Run a one-line script'
 
-- script: |
-    echo Add other tasks to build, test, and deploy your project.
-    echo See https://aka.ms/yaml
-  displayName: 'Run a multi-line script'
+# - script: |
+#     echo Add other tasks to build, test, and deploy your project.
+#     echo See https://aka.ms/yaml
+#   displayName: 'Run a multi-line script'
+
+- task: DartToolKit-FieldTrail@0
+  inputs:
+    sdkVersion: '2.1.0'
+    preserveSDK: false
+    buildSpec: 'dart --version; pub cache repair; pub get; pub global activate webdev; pub global run webdev build --output=web:build'
