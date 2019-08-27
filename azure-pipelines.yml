@@ -23,8 +23,11 @@ steps:
       dart --version
     displayName: 'Dart Installation'
 
-  - script: pub get
+  - script: /usr/lib/dart/bin/pub get
     displayName: 'Resolve Dependencies'
 
   - script: dart main.dart
     displayName: 'Run main.dart'
+
+  - script: /usr/lib/dart/bin/pub run test
+      displayName: 'Run Tests'
