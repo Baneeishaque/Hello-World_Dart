@@ -22,4 +22,4 @@ steps:
   inputs:
     sdkVersion: '2.4.0'
     preserveSDK: false
-    buildSpec: 'dart --version; pub cache repair; pub get; pub global activate webdev; pub global run webdev build --output=web:build'
+    buildSpec: 'dart --version; pub cache repair; pub get'
