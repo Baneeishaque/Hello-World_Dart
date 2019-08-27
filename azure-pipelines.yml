@@ -7,14 +7,21 @@ pool:
   vmImage: 'ubuntu-latest'
 
 steps:
-  - task: DartToolKit-FieldTrail@0
-    inputs:
-      sdkVersion: '2.4.0'
-      preserveSDK: false
-      buildSpec: 'dart --version; pub cache repair; pub get'
+  #  - task: DartToolKit-FieldTrail@0
+  #    inputs:
+  #      sdkVersion: '2.4.0'
+  #      preserveSDK: false
+  #      buildSpec: 'dart --version; pub cache repair; pub get'
 
-  #  - script: dart main.dart
-  #    displayName: 'Run main.dart'
+  - script: |
+      wget https://dl-ssl.google.com/linux/linux_signing_key.pub -O - \| sudo apt-key add -
+      wget https://storage.googleapis.com/download.dartlang.org/linux/debian/dart_stable.list -O /etc/apt/sources.list.d/dart_stable.list
+      sudo apt-get update
+      sudo apt-get install dart
+      /usr/lib/dart/bin/dart --version
 
-  - script: ls /usr/lib/dart/bin/
-    displayName: 'Dart ls'
+  - script: ls /usr/lib/dart/bin/pub get
+    displayName: 'Resolve Dependencies'
+
+  - script: ls /usr/lib/dart/bin/dart main.dart
+    displayName: 'Run main.dart'
