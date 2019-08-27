@@ -7,12 +7,6 @@ pool:
   vmImage: 'ubuntu-latest'
 
 steps:
-  #  - task: DartToolKit-FieldTrail@0
-  #    inputs:
-  #      sdkVersion: '2.4.0'
-  #      preserveSDK: false
-  #      buildSpec: 'dart --version; pub cache repair; pub get'
-
   - script: |
       sudo apt-get update
       sudo apt-get install apt-transport-https
