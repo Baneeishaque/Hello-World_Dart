@@ -13,8 +13,8 @@ steps:
       preserveSDK: false
       buildSpec: 'dart --version; pub cache repair; pub get'
 
-  - script: dart main.dart
-    displayName: 'Run main.dart'
+  #  - script: dart main.dart
+  #    displayName: 'Run main.dart'
 
   - script: ls /usr/lib/dart/bin/
     displayName: 'Dart ls'
