@@ -30,4 +30,4 @@ steps:
     displayName: 'Run main.dart'
 
   - script: /usr/lib/dart/bin/pub run test
-      displayName: 'Run Tests'
+    displayName: 'Run Tests'
