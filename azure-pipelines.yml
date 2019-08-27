@@ -26,7 +26,7 @@ steps:
   - script: /usr/lib/dart/bin/pub get
     displayName: 'Resolve Dependencies'
 
-  - script: dart main.dart
+  - script: dart bin/main.dart
     displayName: 'Run main.dart'
 
   - script: /usr/lib/dart/bin/pub run test
