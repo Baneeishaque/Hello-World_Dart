@@ -14,14 +14,17 @@ steps:
   #      buildSpec: 'dart --version; pub cache repair; pub get'
 
   - script: |
-      wget https://dl-ssl.google.com/linux/linux_signing_key.pub -O - \| sudo apt-key add -
-      wget https://storage.googleapis.com/download.dartlang.org/linux/debian/dart_stable.list -O /etc/apt/sources.list.d/dart_stable.list
+      sudo apt-get update
+      sudo apt-get install apt-transport-https
+      sudo sh -c 'curl https://dl-ssl.google.com/linux/linux_signing_key.pub | apt-key add -'
+      sudo sh -c 'curl https://storage.googleapis.com/download.dartlang.org/linux/debian/dart_stable.list > /etc/apt/sources.list.d/dart_stable.list'
       sudo apt-get update
       sudo apt-get install dart
-      /usr/lib/dart/bin/dart --version
+      dart --version
+    displayName: 'Dart Installation'
 
-  - script: ls /usr/lib/dart/bin/pub get
+  - script: pub get
     displayName: 'Resolve Dependencies'
 
-  - script: ls /usr/lib/dart/bin/dart main.dart
+  - script: dart main.dart
     displayName: 'Run main.dart'
