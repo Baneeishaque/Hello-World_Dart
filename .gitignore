@@ -176,3 +176,4 @@ $RECYCLE.BIN/
 *.lnk
 
 # End of https://www.gitignore.io/api/dart,linux,macos,windows,intellij
+/.idea/libraries/
